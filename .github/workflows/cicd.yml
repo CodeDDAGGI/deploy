@@ -2,12 +2,12 @@ name: CICD
 
 on:
   push:
-    branches : [ "main" ]
+    branches: [ "main" ]
   pull_request:
-    branches : [ "main" ]
+    branches: [ "main" ]
 
-permissions :
-  contents : read
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -15,15 +15,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: show directory
-      - run: |
+        run: |
           ls -a
       - name: test1
-        run : |
+        run: |
           echo "test1 출력"
       - name: test2
-        run : |
+        run: |
           echo "test2 출력"
       - name: test3
-        run : |
+        run: |
           echo "test3 출력"
-      
