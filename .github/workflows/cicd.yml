@@ -20,19 +20,16 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-
-      - name: show JDK version
+        # clean 타겟 폴더 정리
+        # -D 옵션 명령어를 사용할때 씀
+      - name: Build SpringBoot Server
+        # 형식 chmod 사용자번호, 그룹번호 , 외부의 번호  권한을 주고싶은 파일
         run: |
-          java --version
+          chmod 700 ./mvnw 
+          ./mvnw clean package -Dtestskip
+          
       - name: show Directory
         run: |
           ls -a
-      - name: test1
-        run: |
-          echo "test1 출력"
-      - name: test2
-        run: |
-          echo "test2 출력"
-      - name: test3
-        run: |
-          echo "test3 출력"
+          cd ./target
+          ls -a
