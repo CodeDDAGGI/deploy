@@ -14,7 +14,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: show directory
+      - name: Install JDK 11
+        uses: actions/setup-java@v3
+        # jdk 11버젼을 쓰기위한 세팅
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: show JDK version
+        run: |
+          java --version
+      - name: show Directory
         run: |
           ls -a
       - name: test1
